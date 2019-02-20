@@ -5,20 +5,20 @@ import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
 import moment from 'moment'
 
-const ProjectDetails = (props) => {
-  const { project, auth } = props;
+const EventDetails = (props) => {
+  const { event, auth } = props;
   if (!auth.uid) return <Redirect to='/signin' /> 
-  if (project) {
+  if (event) {
     return (
-      <div className="container section project-details">
+      <div className="container section event-details">
         <div className="card z-depth-0">
           <div className="card-content">
-            <span className="card-title">{project.title}</span>
-            <p>{project.content}</p>
+            <span className="card-title">{event.title}</span>
+            <p>{event.content}</p>
           </div>
           <div className="card-action grey lighten-4 grey-text">
-            <div>Posted by {project.authorFirstName} {project.authorLastName}</div>
-            <div>{moment(project.createdAt.toDate()).calendar()}</div>
+            <div>Posted by {event.authorFirstName} {event.authorLastName}</div>
+            <div>{moment(event.createdAt.toDate()).calendar()}</div>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@ const ProjectDetails = (props) => {
   } else {
     return (
       <div className="container center">
-        <p>Loading project...</p>
+        <p>Loading Event...</p>
       </div>
     )
   }
@@ -35,10 +35,10 @@ const ProjectDetails = (props) => {
 const mapStateToProps = (state, ownProps) => {
   // console.log(state);
   const id = ownProps.match.params.id;
-  const projects = state.firestore.data.projects;
-  const project = projects ? projects[id] : null
+  const events = state.firestore.data.events;
+  const event = events ? events[id] : null
   return {
-    project: project,
+    event: event,
     auth: state.firebase.auth
   }
 }
@@ -46,6 +46,6 @@ const mapStateToProps = (state, ownProps) => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([{
-    collection: 'projects'
+    collection: 'events'
   }])
-)(ProjectDetails)
+)(EventDetails)

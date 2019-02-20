@@ -1,18 +1,18 @@
-export const createProject = (project) => {
+export const createEvent = (event) => {
   return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
     const profile = getState().firebase.profile;
     const authorId = getState().firebase.auth.uid;
-    firestore.collection('projects').add({
-      ...project,
+    firestore.collection('events').add({
+      ...event,
       authorFirstName: profile.firstName,
       authorLastName: profile.lastName,
       authorId: authorId,
       createdAt: new Date()
     }).then(() => {
-      dispatch({ type: 'CREATE_PROJECT_SUCCESS' });
+      dispatch({ type: 'CREATE_EVENT_SUCCESS' });
     }).catch(err => {
-      dispatch({ type: 'CREATE_PROJECT_ERROR' }, err);
+      dispatch({ type: 'CREATE_EVENT_ERROR' }, err);
     });
   }
 };
