@@ -4,12 +4,12 @@ import 'firebase/auth';
 
 // Replace this with your own config details
 var config = {
-  apiKey: "AIzaSyDo2HauU6PtL3PY6KthXdpIUzbDV908avo",
-  authDomain: "marioplan-files.firebaseapp.com",
-  databaseURL: "https://marioplan-files.firebaseio.com",
-  projectId: "marioplan-files",
-  storageBucket: "marioplan-files.appspot.com",
-  messagingSenderId: "1011174152626"
+  apiKey: "AIzaSyDsrgJUBg3a1p9Oclr7ch_w_3fIrIIyEjA",
+  authDomain: "thenightswatch-e012e.firebaseapp.com",
+  databaseURL: "https://thenightswatch-e012e.firebaseio.com",
+  projectId: "thenightswatch-e012e",
+  storageBucket: "thenightswatch-e012e.appspot.com",
+  messagingSenderId: "1050091573006"
 };
 firebase.initializeApp(config);
 firebase.firestore().settings({ timestampsInSnapshots: true });
