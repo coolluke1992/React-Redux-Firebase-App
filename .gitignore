@@ -1,17 +1,17 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/marioplan/node_modules
-/marioplan/functions/node_modules
+/nightswatch/node_modules
+/nightswatch/functions/node_modules
 
 # testing
-/marioplan/coverage
+/nightswatch/coverage
 
 # production
-/marioplan/build
+/nightswatch/build
 
 # misc
-/marioplan/.DS_Store
+/nightswatch/.DS_Store
 .env.local
 .env.development.local
 .env.test.local
